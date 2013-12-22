@@ -28,7 +28,7 @@ import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.
 public class Application {
 
     @Bean
-    ServletContextTemplateResolver templateResolver() {
+    public ServletContextTemplateResolver templateResolver() {
         ServletContextTemplateResolver resolver = new ServletContextTemplateResolver();
         resolver.setSuffix(".html");
         resolver.setTemplateMode("HTML5");
@@ -36,14 +36,14 @@ public class Application {
     }
 
     @Bean
-    SpringTemplateEngine engine() {
+    public SpringTemplateEngine engine() {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(templateResolver());
         return engine;
     }
 
     @Bean
-    ThymeleafViewResolver viewResolver() {
+    public ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(engine());
         return viewResolver;
