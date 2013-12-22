@@ -15,8 +15,7 @@ public class PersonController {
 
     @RequestMapping(method = RequestMethod.GET)
     public @ResponseBody
-    List<Person> getPersonByName(
-            @RequestParam(value="name", required=false) String name) {
+    List<Person> getPersonByName(@RequestParam(value="name") String name) {
         return personRepository.findByName(name);
     }
 }
